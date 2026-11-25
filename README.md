@@ -7,5 +7,5 @@ npm install
 npm run dev
 ```
 
-API 주소는 Netlify 또는 로컬 환경의 `VITE_API_BASE_URL`로 설정합니다.
+`App/Web/.env.example`을 `.env`로 복사하고 API 주소를 `VITE_API_BASE_URL`로 설정합니다. Netlify에서는 같은 이름의 환경 변수를 배포 설정에 등록합니다.
 
