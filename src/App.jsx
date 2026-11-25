@@ -21,7 +21,6 @@ const initialForm = {
   language_level: '쉬운 한국어',
   supports: ['짧은 문장', '핵심어 설명'],
   original_text: '',
-  file: null,
 }
 
 function App() {
@@ -143,16 +142,11 @@ function App() {
               </div>
             </fieldset>
 
-            <label className="upload">
-              <span>원본 파일 <small>PDF, DOCX, PPTX, TXT, MD</small></span>
-              <input type="file" accept=".pdf,.docx,.pptx,.txt,.md" onChange={(event) => setForm((current) => ({ ...current, file: event.target.files[0] || null }))} />
-            </label>
-            <div className="or"><span>또는 내용을 직접 붙여넣기</span></div>
             <label>
-              <span className="sr-only">원본 내용</span>
-              <textarea name="original_text" rows="10" value={form.original_text} onChange={updateField} placeholder="학습목표와 본문을 포함한 수업자료를 입력하세요." />
+              원본 내용
+              <textarea required name="original_text" rows="12" value={form.original_text} onChange={updateField} placeholder="학습목표와 본문을 포함한 수업자료를 20자 이상 입력하세요." />
             </label>
-            <button className="primary" disabled={busy || (!form.file && form.original_text.trim().length < 20)}>
+            <button className="primary" disabled={busy || form.original_text.trim().length < 20}>
               {busy ? '자료를 만들고 있어요…' : '수준별 자료 만들기'}
             </button>
             {message && <p className="status-message" role="status">{message}</p>}

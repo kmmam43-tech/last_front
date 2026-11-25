@@ -15,7 +15,6 @@ async function request(path, options = {}) {
 export function generateMaterial(form) {
   const data = new FormData()
   Object.entries(form).forEach(([key, value]) => {
-    if (key === 'file' && !value) return
     if (key === 'supports') data.set(key, value.join(','))
     else data.set(key, value)
   })
